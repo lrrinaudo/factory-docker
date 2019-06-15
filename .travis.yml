@@ -3,6 +3,8 @@ services:
   - docker
 node_js:
   - "11.10.1"
+env:
+  - CYPRESS_baseUrl=http://localhost
 script:
   - yarn run cloneAll
   - docker-compose up -d
