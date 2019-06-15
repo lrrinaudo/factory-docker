@@ -5,9 +5,11 @@ node_js:
   - "11.10.1"
 env:
   - CYPRESS_baseUrl=http://localhost
+cache: yarn
 script:
   - yarn run cloneAll
   - docker-compose up -d
   - yarn run cypress:run
+  - yarn run waitForServer
   - docker-compose down
   - yarn run clean
