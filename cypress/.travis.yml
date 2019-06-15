@@ -1,0 +1,11 @@
+language: node_js
+services:
+  - docker
+node_js:
+  - "11.10.1"
+script:
+  - yarn run cloneAll
+  - docker-compose up -d
+  - yarn run cypress:run
+  - docker-compose down
+  - yarn run clean

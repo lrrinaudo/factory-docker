@@ -25,7 +25,7 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 Cypress.Commands.add("getTodo", (texto) => {
-  return cy.get(".todo-list .todo").contains(texto)
+  return cy.get(".todo-list .todo:not(.loading)").contains(texto)
 })
 
 Cypress.Commands.add("addTodo", (texto) => {

@@ -2,12 +2,12 @@ describe("TODO List", () => {
 
   beforeEach("Borrar datos", () => {
     // Antes de cada test remueve todos los datos
-    cy.request("DELETE", "http://localhost:3000/api/todos")
+    cy.request("DELETE", "/api/todos")
   })
 
   describe("Una vez cargada la pagina", () => {
     beforeEach("Cargar la pagina", () => {
-      cy.visit("http://localhost:3000")
+      cy.visit("/")
     });
 
     it("debe mostrar los elementos de la pagina", () => {
@@ -48,7 +48,7 @@ describe("TODO List", () => {
 
       cy.getTodo(todo)
       cy.get(".todo-list").should("not.contain", notDone);
-
+      
       cy.changeVisibility("All");
 
       cy.getTodo(todo).parent().should("have.class", "done");
