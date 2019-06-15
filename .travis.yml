@@ -9,7 +9,7 @@ cache: yarn
 script:
   - yarn run cloneAll
   - docker-compose up -d
-  - yarn run cypress:run
   - yarn run waitForServer
+  - yarn run cypress:run
   - docker-compose down
   - yarn run clean
