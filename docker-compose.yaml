@@ -12,13 +12,13 @@ services:
   mongodb:
     image: mongo
   frontend:
-    build: "./cloned-repos/todos-frontend/"
+    build: "./cloned-repos/frontend/"
     labels:
     - traefik.frontend.rule=PathPrefix:/
   backend:
-    build: "./cloned-repos/todos-backend/"
+    build: "./cloned-repos/backend/"
     environment: 
-    - MONGO_URL=mongodb://mongodb/pdes-todos
+    - MONGO_URL=mongodb://mongodb/factory
     - NODE_ENV=production
     labels:
     - traefik.frontend.rule=PathPrefix:/api
